@@ -1,0 +1,149 @@
+//VARIAVEIS//
+$bg-soft-violet: hsl(273, 75%, 66%);
+$bg-soft-blue: hsl(240, 73%, 65%);
+$text-soft-red: hsl(14, 88%, 65%);
+$text-very-dark-desaturated-blue: hsl(238, 29%, 16%);
+$text-very-dark-grayish: hsl(237, 12%, 33%);
+$text-dark-grayish: hsl(240, 6%, 50%);
+$light-grayish: hsl(240, 5%, 91%);
+$font: "Kumbh Sans", sans-serif;;
+
+body {
+  font-size: 12px;
+  box-sizing: border-box;
+  font-family: $font;
+}
+//BACKGROUND//
+.bg-content {
+  height: 100vh;
+  width: 100%;
+  background: linear-gradient(
+    to bottom,
+    $bg-soft-violet,
+    $bg-soft-blue
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+//CONTENT BOX//
+.content {
+  background-color: #fff;
+  width: 86.5%;
+  max-width: 360px;
+  border-radius: 24px;
+  position: relative;
+}
+.content::before {
+  content: "";
+  background: url(../../images/illustration-woman-online-mobile.svg) no-repeat;
+  width: 268px;
+  height: 180px;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-55%, -55%);
+}
+.content::after {
+  content: "";
+  background: url(../../images/bg-pattern-mobile.svg) no-repeat;
+  width: 268px;
+  height: 180px;
+  position: absolute;
+  top: 6.5rem;
+  left: 50%;
+  transform: translate(-45%, -53%);
+}
+//CONTENT BOX TEXT//
+.content-texts {
+    display: flex;
+    width: 500px;
+    height: 500px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.content-faq {
+  margin-right: 260px;
+}
+.title {
+  font: {
+    style:$font;
+    weight: bold;
+  }
+}
+.icon-arrow {
+  width: 350px;
+}
+.paragraph {
+  font: {
+    style:$font;
+    size: 16px;
+  }
+}
+.paragraph:hover {
+  color: $text-soft-red;
+  cursor: pointer;
+}
+.paragraph-invisible {
+  font-style:$font;
+  width: 280px;
+  text-align: center;
+  display: none;
+}
+
+
+
+//FOOTER//
+.links {
+    color: $light-grayish;
+    text-decoration: none;
+  }
+//ANIMATION//
+@keyframes boxHop {
+  from {
+    transform: translate(-55%, -55%);
+  }
+  50% {
+    transform: translate(-55%, -57.5%);
+  }
+  to {
+    transform: translate(-55%, -55%);
+  }
+}
+/* MEDIA QUERIES */
+@media screen and (min-width: 650px) {
+  .content {
+    max-width: 500px;
+    height: auto;
+  }
+}
+@media screen and (min-width: 900px) {
+  .content {
+    height: 510px;
+    max-width: 925px;
+    display: flex;
+    justify-content: flex-end;
+    background: url(../../images/illustration-woman-online-desktop.svg) bottom
+        3.1rem left -5.1rem no-repeat,
+      url(../../images/bg-pattern-desktop.svg) bottom -10rem left -36rem
+        no-repeat;
+    background-color: $light-grayish;
+  }
+  .content::before {
+    content: "";
+    background: url(../../images/illustration-box-desktop.svg) no-repeat;
+    width: 140px;
+    height: 190px;
+    position: absolute;
+    top: 66%;
+    left: -1.6%;
+    transform: translate(-55%, -55%);
+    animation: boxHop 2s ease-in-out;
+    animation-iteration-count: infinite;
+  }
+  .content::after {
+    display: none;
+  }
+}
