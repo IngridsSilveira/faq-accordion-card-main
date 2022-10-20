@@ -6,25 +6,25 @@ $text-very-dark-desaturated-blue: hsl(238, 29%, 16%);
 $text-very-dark-grayish: hsl(237, 12%, 33%);
 $text-dark-grayish: hsl(240, 6%, 50%);
 $light-grayish: hsl(240, 5%, 91%);
-$font: "Kumbh Sans", sans-serif;;
+$font: "Kumbh Sans", sans-serif;
 
 body {
   font-size: 12px;
   box-sizing: border-box;
   font-family: $font;
 }
-//BACKGROUND//
-.bg-content {
-  height: 100vh;
-  width: 100%;
-  background: linear-gradient(
-    to bottom,
-    $bg-soft-violet,
-    $bg-soft-blue
-  );
+//PADRÃO//
+.display {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+//BACKGROUND//
+.bg-content {
+  @extend .display;
+  height: 100vh;
+  width: 100%;
+  background: linear-gradient(to bottom, $bg-soft-violet, $bg-soft-blue);
   flex-direction: column;
 }
 //CONTENT BOX//
@@ -57,49 +57,51 @@ body {
 }
 //CONTENT BOX TEXT//
 .content-texts {
-    display: flex;
-    width: 500px;
-    height: 500px;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
+  @extend .display;
+  max-width: 500px;
+  height: auto;
+  flex-direction: column;
+  justify-content: space-evenly;
 }
 .content-faq {
   margin-right: 260px;
 }
 .title {
   font: {
-    style:$font;
+    style: $font;
     weight: bold;
   }
 }
 .icon-arrow {
   width: 350px;
+  flex-direction: column;
 }
 .paragraph {
   font: {
-    style:$font;
+    style: $font;
     size: 16px;
   }
-}
-.paragraph:hover {
-  color: $text-soft-red;
-  cursor: pointer;
+  &:hover {
+    color: $text-soft-red;
+    cursor: pointer;
+  }
 }
 .paragraph-invisible {
-  font-style:$font;
+  font-style: $font;
   width: 280px;
   text-align: center;
   display: none;
 }
-
-
-
+.hr {
+  width: 100%;
+  height: 5px;
+  margin: 0;
+}
 //FOOTER//
 .links {
-    color: $light-grayish;
-    text-decoration: none;
-  }
+  color: $light-grayish;
+  text-decoration: none;
+}
 //ANIMATION//
 @keyframes boxHop {
   from {
@@ -113,13 +115,39 @@ body {
   }
 }
 /* MEDIA QUERIES */
+@media screen and (min-width: 350px) {
+  .content {
+    max-width: 500px;
+    width: 100%;
+    height: auto;
+    background: orange;
+  }
+  .paragraph,
+  .paragraph-invisible {
+    font-size: 13px;
+  }
+  .rodape {
+    flex-direction: column;
+  }
+}
 @media screen and (min-width: 650px) {
   .content {
     max-width: 500px;
     height: auto;
+    background: blue;
+  }
+  .content-texts {
+    justify-content: space-evenly;
+  }
+  .paragraph,
+  .paragraph-invisible {
+    font-size: 15px;
+  }
+  .rodape {
+    flex-direction: row;
   }
 }
-@media screen and (min-width: 900px) {
+@media screen and (min-width: 980px) {
   .content {
     height: 510px;
     max-width: 925px;
@@ -145,5 +173,8 @@ body {
   }
   .content::after {
     display: none;
+  }
+  .content-texts {
+    width: 500px;
   }
 }
