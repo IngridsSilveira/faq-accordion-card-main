@@ -147,7 +147,7 @@ body {
     display: flex;
     justify-content: flex-end;
     background: url(../../images/illustration-woman-online-desktop.svg) bottom 3.1rem left -5.1rem no-repeat, url(../../images/bg-pattern-desktop.svg) bottom -10rem left -36rem no-repeat;
-    background-color: hsl(240deg, 5%, 91%);
+    background-color: #fff;
   }
   .content::before {
     content: "";
