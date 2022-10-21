@@ -81,13 +81,16 @@ body {
   font-style: "Kumbh Sans", sans-serif;
   width: 280px;
   text-align: center;
-  display: none;
 }
 
 .hr {
   width: 100%;
   height: 5px;
   margin: 0;
+}
+
+.active {
+  font-weight: bold;
 }
 
 .links {
@@ -112,7 +115,6 @@ body {
     max-width: 500px;
     width: 100%;
     height: auto;
-    background: orange;
   }
   .paragraph,
 .paragraph-invisible {
@@ -126,7 +128,6 @@ body {
   .content {
     max-width: 500px;
     height: auto;
-    background: blue;
   }
   .content-texts {
     justify-content: space-evenly;
